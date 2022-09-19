@@ -218,13 +218,11 @@ const showUpdatePopup = (event) => {
   let id = event.currentTarget.id.slice(2)
   updatePostPopup.style.display = "flex"
   updateButton.id = id
-  if (updateTitle.value && updateBody.value) {
-    getPostById(id)
-      .then(res => {
-        updateTitle.value = res.title
-        updateBody.value = res.body
-      })
-  }
+  getPostById(id)
+    .then(res => {
+      updateTitle.value = res.title
+      updateBody.value = res.body
+    })
   createPostPopup.style.display = "none"
   container.style.display = "none";
 }
